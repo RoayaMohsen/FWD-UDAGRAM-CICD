@@ -127,6 +127,7 @@ jobs:
             npm install
             npm test
       - notify_on_failure
+  
   test-backend:
     docker:
       - image: cimg/node:13.8.0
@@ -160,6 +161,7 @@ jobs:
             npm audit fix --force --audit-level=critical
 #            npm audit --audit-level=critical
       - notify_on_failure
+ 
   scan-backend:
     docker:
       - image: cimg/node:13.8.0
@@ -176,6 +178,7 @@ jobs:
             npm audit fix --force --audit-level=critical
 #            npm audit --audit-level=critical
       - notify_on_failure
+  
   deploy-infrastructure:
     docker:
       - image: cimg/base:stable
@@ -288,7 +291,7 @@ jobs:
       - destroy-environment
       - revert-migrations
 
-deploy-backend:
+  deploy-backend:
     docker:
       - image: cimg/base:stable
     steps:
