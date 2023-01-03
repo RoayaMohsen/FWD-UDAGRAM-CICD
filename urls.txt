@@ -1,1 +1,3 @@
-- GitHub repository URL  [https://github.com/RoayaMohsen/FWD-UDAGRAM-CICD]
+- URL01 : GitHub repository URL  [https://github.com/RoayaMohsen/FWD-UDAGRAM-CICD]
+- URL02 : S3 website-endpoint [http://udapeople-2ef22fa.s3-website-us-east-1.amazonaws.com/#/employees]
+- URL03 : distribution endpoint [d2pcn8uozmcf56.cloudfront.net]	
