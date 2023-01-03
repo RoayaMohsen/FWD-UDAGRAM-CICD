@@ -28,7 +28,7 @@ commands:
     steps:
       - slack/notify:
           event: fail
-          channel: cicd-pipeline-status
+          channel: cicd-pipeline
           template: basic_fail_1
 
   destroy-environment:
@@ -59,7 +59,7 @@ commands:
           command: |
             SUCCESS=$(curl --insecure https://kvdb.io/${KVDB_BUCKET}/migration_<< parameters.Workflow_ID >>)
             #Logic for reverting the datebase state
-            if(( $SUCCESS == 1 ));
+            if (( $SUCCESS == 1 ));
             then
               cd ~/project/backend
               npm install
@@ -189,7 +189,7 @@ jobs:
               --template-file .circleci/files/frontend.yml \
               --tags project=udapeople \
               --stack-name "udapeople-frontend-${CIRCLE_WORKFLOW_ID:0:7}" \
-              --parameter-overrides ID=${CIRCLE_WORKFLOW_ID:0:7}  
+              --parameter-overrides ID="${CIRCLE_WORKFLOW_ID:0:7}"
       - run:
           name: Add back-end ip to ansible inventory
           command: |
@@ -346,7 +346,7 @@ jobs:
     steps:
       - slack/notify:
           event: pass
-          channel: cicd-pipeline-status
+          channel: cicd-pipeline
           template: success_tagged_deployment_1
 
 workflows:
