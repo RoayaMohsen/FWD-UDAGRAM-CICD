@@ -46,10 +46,8 @@ commands:
             aws s3 rm s3://udapeople-<<parameters.Workflow_ID>> --recursive
             aws cloudformation delete-stack --stack-name udapeople-frontend-<< parameters.Workflow_ID >>
 
-
-
   revert-migrations:
-    description: Revert the last migration
+    description: Revert the last migration.
     parameters:
       Workflow_ID:
         type: string
@@ -61,13 +59,12 @@ commands:
           command: |
             SUCCESS=$(curl --insecure https://kvdb.io/${KVDB_BUCKET}/migration_<< parameters.Workflow_ID >>)
             #Logic for reverting the datebase state
-            if(( $SUCCESS == 1 )); 
+            if(( $SUCCESS == 1 ));
             then
               cd ~/project/backend
               npm install
               npm run migration:revert
-            fi
-            
+            fi            
 jobs:
   build-frontend:
     docker:
